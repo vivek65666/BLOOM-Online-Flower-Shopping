@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BLOOM - My Orders</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/web/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5 mb-5">
+
+        <h1 class="text-center mb-4">MY ORDERS</h1>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Total Amount</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                        <th>Transaction ID</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="orderTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/index/" class="btn btn-success">
+                Continue Shopping
+            </a>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/get_order_history/",
+                type: "GET",
+
+                success: function (result) {
+
+                    var html = "";
+
+                    if (result.length === 0) {
+
+                        html = `
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    No orders found.
+                                </td>
+                            </tr>
+                        `;
+
+                    } else {
+
+                        $.each(result, function (index, order) {
+
+                            var status = "Pending";
+
+                            if (order.or_status == "1") {
+                                status = "Paid";
+                            }
+
+                            html += `
+                                <tr>
+                                    <td>${order.or_id}</td>
+                                    <td>${order.or_name}</td>
+                                    <td>₹${order.or_total_amount}</td>
+                                    <td>${order.or_address}</td>
+                                    <td>${order.or_date}</td>
+                                    <td>${order.or_transaction_id}</td>
+                                    <td>
+                                        <span class="badge badge-success">
+                                            ${status}
+                                        </span>
+                                    </td>
+                                </tr>
+                            `;
+
+                        });
+                    }
+
+                    $("#orderTable").html(html);
+                },
+
+                error: function () {
+
+                    $("#orderTable").html(`
+                        <tr>
+                            <td colspan="7" class="text-center text-danger">
+                                Unable to load orders.
+                            </td>
+                        </tr>
+                    `);
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

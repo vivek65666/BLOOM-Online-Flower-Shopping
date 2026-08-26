@@ -1,0 +1,16 @@
+venv/
+venv39/
+.env
+*.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+*.sqlite3
+.vscode/
+.vs/
+.idea/
+*.log
+.DS_Store
+Thumbs.db

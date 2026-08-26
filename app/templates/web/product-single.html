@@ -1,0 +1,667 @@
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>BLOOM</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/web/images/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/static/web/css/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="/static/web/images/core-img/flo3.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ***** Top Header Area ***** -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="bloombns@gmail.com"><i
+                                        class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email:
+                                        bloombns@gmail.com</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+91 7892387835"><i
+                                        class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +91
+                                        7892387835</span></a>
+                            </div>
+
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta d-flex">
+                                <!-- Language Dropdown -->
+                                <div class="">
+                                    <a href="/admin_login/"><i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Admin</span></a>
+                                </div>
+                                <!-- Login -->
+                                <div class="logout">
+                                    <a href="/login/"><i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Login</span></a>
+                                </div>
+
+                                <div class="login">
+                                    <a href="/web_profile/"><i class="fa fa-user" aria-hidden="true"></i> <span>My
+                                            Profile</span></a>
+                                </div>
+                                <div class="cart">
+                                    <a href="/cart/"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Cart
+                                            <span class="cart-quantity" id="addCart">0</span></span></a>
+                                </div>
+
+                                <div class="cart ml-4 login">
+                                    <a href="/user_logout/"><i class="fa fa-user" aria-hidden="true"></i><span>Logout
+                                        </span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a href="/index/" class="nav-brand">
+                            <h4 class="fw-bold text-white">BLOOM </h4>
+                        </a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="/index/">Home</a></li>
+                                    <li><a href="/about/">About</a></li>
+                                    <li><a href="/shop/">Shop</a></li>
+                                    <li class="dropdown show">
+                                        <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Category
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="categories">
+
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="/gallery/">Gallery</a></li>
+                                    <li><a href="/contact/">Contact</a></li>
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image: url(/static/web/images/bg-img/flo3.jpg);">
+            <h2>FLOWERS</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="/index/">Buy Now</a></li>
+                            <!-- <li class="breadcrumb-item active" aria-current="page">Single Portfolio</li> -->
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <input type="hidden" id="txtID" value="{{request.GET.id}}">
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 ftco-animate">
+                    <!-- <a href="" class="image-popup"> -->
+                    <img src="" id="big_img" class="img-fluid" height="250">
+                </div>
+                <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                    <h3 id="name">Product</h3>
+
+                    <h3 class="price">₹<span id="productPrice"></span></h3>
+                    <p id="description">Description
+                    </p>
+                    <input type="hidden" id="productID">
+                    <input type="hidden" id="email">
+                    <!-- <button type="button" id="btn" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1">Book Now</button> -->
+                    <select id="selQTY" class="frm-field required sect">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                    <h3 class="price"><span id="txtTotalAmt"></span></h3>
+                    <br>
+                    <br>
+                    <p><a href="#" class="btn bg-dark text-white py-3 px-5" id="cart">Add to Cart</a>
+                        <a href="#" class="btn bg-dark text-white  py-3 px-5" id="checkout">Add to Checkout</a>
+                    </p>
+
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Portfolio Detaila Area Start ##### -->
+    <section class="alazea-portfolio-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center">
+                        <h2>OUR Gallery</h2>
+                        <p>We devote all of our experience and efforts for creation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alazea-portfolio-filter">
+                        <div class="portfolio-filter">
+                            <button class="btn active" data-filter="*">All</button>
+                            <button class="btn" data-filter=".design">Coffee Design</button>
+                            <button class="btn" data-filter=".garden">Garden</button>
+                            <button class="btn" data-filter=".home-design">Home Design</button>
+                            <button class="btn" data-filter=".office-design">Office Design</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row alazea-portfolio">
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design home-design wow fadeInUp"
+                    data-wow-delay="100ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/flower2.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/flower2.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden wow fadeInUp" data-wow-delay="200ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/17.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/17.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden design wow fadeInUp"
+                    data-wow-delay="300ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/18.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/18.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 3">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden office-design wow fadeInUp"
+                    data-wow-delay="400ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/flower5.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/flower5.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design office-design wow fadeInUp"
+                    data-wow-delay="100ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/flower6.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/flower6.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 5">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden wow fadeInUp" data-wow-delay="200ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/21.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/21.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 6">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Portfolio Area -->
+                <div class="col-12 col-lg-6 single_portfolio_item home-design wow fadeInUp" data-wow-delay="300ms">
+                    <!-- Portfolio Thumbnail -->
+                    <div class="portfolio-thumbnail bg-img"
+                        style="background-image: url(/static/web/images/bg-img/flower7.jpg);"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="/static/web/images/bg-img/flower7.jpg"
+                            class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 7">
+                            <div class="port-hover-text">
+                                <h3>Minimal Flower Store</h3>
+                                <h5>Office Plants</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Portfolio Detaila Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-img" style="background-image: url(/static/web/images/bg-img/3.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="/index/" class="nav-brand">
+                                    <h4 class="fw-bold text-white">Flower Shopping </h4>
+                                </a>
+
+                            </div>
+                            <p>Living things thrive off routine, and plants are no exception to the rule. There’s no
+                                better way to ensure their health than establishing a steady routine that involves
+                                checking in on them, watering regularly, and fertilizing during spring and summer.</p>
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>QUICK LINK</h5>
+                            </div>
+                            <nav class="widget-nav">
+                                <ul>
+                                    <li><a href="/index/">Home</a></li>
+                                    <li><a href="/about/">About</a></li>
+                                    <li><a href="/shop/">Shop</a></li>
+                                    <li><a href="/gallery/">Gallery</a></li>
+                                    <li><a href="/contact/">Contact</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>CONTACT</h5>
+                            </div>
+
+                            <div class="contact-information">
+                                <p><span>Address:</span>Belagavi Karnataka</p>
+                                <p><span>Phone:</span> +91 7892387835</p>
+                                <p><span>Email:</span> bloombns@gmail.com</p>
+                                <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
+                                <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Area -->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-line"></div>
+                    </div>
+                    <!-- Copywrite Text -->
+                    <div class="col-12 ">
+                        <div class="copywrite-text d-flex justify-content-center">
+                            <p>&copy;
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved <i
+                                    class="fa fa-heart-o" aria-hidden="true"></i>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Footer Nav -->
+                    <!-- <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Service</a></li>
+                                    <li><a href="#">Portfolio</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="/static/web/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper j/static/web/s -->
+    <script src="/static/web/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstra/static/web/p js -->
+    <script src="/static/web/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plug/static/web/ins js -->
+    <script src="/static/web/js/plugins/plugins.js"></script>
+    <!-- Active j/static/web/s -->
+    <script src="/static/web/js/active.js"></script>
+    <script src="/static/web/js/jsCartCount.js"></script>
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    getData();
+    function getData() {
+
+        let formData = new FormData();
+
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+        formData.append("txtID", $("#txtID").val());
+        $.ajax({
+
+            url: "/get_single_item/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+                for (let i = 0; i < response.length; i++) {
+                    var imgSub = response[i].ap_image.substring(3);
+
+                    $("#name").text(response[0].ap_name);
+                    // $("#category").html(response[0].pr_type);
+                    $("#productPrice").text(response[0].ap_price);
+                    $("#txtTotalAmt").text('₹' + response[0].ap_price);
+                    $("#description").text(response[0].ap_description);
+                    $("#quantity").text(response[0].ap_quantity);
+                    $("#big_img").attr("src", imgSub);
+                    $("#productID").val(response[0].ap_id);
+                    $("#email").val(response[0].ap_created_by);
+
+
+                }
+
+            }
+
+        });
+    }
+
+    getData1();
+    function getData1() {
+
+        let formData = new FormData();
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+        $.ajax({
+
+            url: "/get_product_details/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+                for (let i = 0; i < response.length; i++) {
+                    let imgSub = response[i].ap_image.substring(3);
+
+                    $("#productList").append('<div class="col-md-6 col-lg-3"> <div class="product"> <a class="img-prod"><img class="img-fluid" src="' + imgSub + '" alt="Colorlib Template"> <div class="overlay"></div></a> <div class="text py-3 pb-4 px-3 text-center"> <h3><a href="#">' + response[i].ap_name + '</a></h3> <div class="d-flex"> <div class="pricing"> <p class="price"><span class="price-sale">' + response[i].ap_price + '</span> </p></div></div><div class="d-flex px-3"> <div class="m-auto d-flex"> <a href="/product-single?id=' + response[i].ap_id + '" class="btn btn-outline-success">Details </div></div></div></div></div>');
+
+
+                }
+
+            }
+
+        });
+    }
+
+    $("#selQTY").change(function () {
+        var lclAmt = ($("#productPrice").text().trim()).substring(0);
+        var lclTotalAmt = ($("#selQTY").val() * lclAmt).toFixed(2);
+        // alert(lclTotalAmt);
+        $("#txtTotalAmt").text("₹" + lclTotalAmt);
+    });
+
+    $("#cart").click(function () {
+
+        var formData = new FormData();
+        var lclAmt = ($("#txtTotalAmt").text().trim()).substring(1);
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+        formData.append("selQTY", $("#selQTY").val());
+        formData.append("txtID", $("#txtID").val());
+        formData.append("txtTotalAmt", parseInt(lclAmt));
+
+        $.ajax({
+            beforeSend: function () {
+                // $(".btn .spinner-border").show();
+                $("#cart").attr("disabled", true);
+            },
+            url: "/add_cart/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                if (result == '0') {
+                    window.location = "/register/";
+                } else {
+                    window.location = "/cart/";
+                }
+
+            },
+            error: function (request, error) {
+                console.error(error);
+            },
+            complete: function () {
+                // $(".btn .spinner-border").hide();
+                $("#cart").attr("disabled", false);
+            },
+        });
+    });
+
+
+    $("#checkout").click(function () {
+
+        var formData = new FormData();
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+        formData.append("selQTY", $("#selQTY").val());
+        formData.append("txtID", $("#txtID").val());
+        $.ajax({
+            beforeSend: function () {
+                // $(".btn .spinner-border").show();
+                $("#btn_submit").attr("disabled", true);
+            },
+            url: "/check_checkout/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                if (result == '0') {
+                    window.location = "/register/";
+                } else {
+                    window.location = "/checkout/?id=" + result + "&qty=" + $("#selQTY").val();
+                }
+
+            },
+            error: function (request, error) {
+                console.error(error);
+            },
+            complete: function () {
+                // $(".btn .spinner-border").hide();
+                $("#btn_submit").attr("disabled", false);
+            },
+        });
+    });
+
+
+    function getCategories() {
+
+        var formData = new FormData();
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+        $.ajax({
+
+            url: "/web_get_categories/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+                for (var i = 0; i < response.length; i++) {
+                    // var imgSub = response[i].ap_image.substring(8);
+                    // if(response[i].ap_role == "Vendor") {
+
+                    $("#categories").append(' <a class="dropdown-item" href="/category_detail/?id=' + response[i].ca_name + '">' + response[i].ca_name + '</a>');
+                    // }
+                }
+
+            }
+
+        });
+    }
+    getCategories()
+</script>

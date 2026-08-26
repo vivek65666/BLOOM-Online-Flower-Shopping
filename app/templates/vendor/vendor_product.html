@@ -1,0 +1,673 @@
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BLOOM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="Gradient Able Bootstrap admin template made using Bootstrap 4. The starter version of Gradient Able is completely free for personal project." />
+    <meta name="keywords"
+        content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+    <meta name="author" content="codedthemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/vendor/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/icon/font-awesome/css/font-awesome.min.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/css/jquery.mCustomScrollbar.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="fixed-button">
+        <a href="https://codedthemes.com/item/gradient-able-admin-template" target="_blank"
+            class="btn btn-md btn-primary">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
+        </a>
+    </div>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <div class="mobile-search">
+                            <div class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" placeholder="Enter Keyword">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <a href="/index_admin/">
+                       <img class="img-fluid" src="/static/admin/assets/images/logo.png" alt="Theme-Logo" />
+                   </a> -->
+                        <div>
+                            <h4 class="text-white">BLOOM</h4>
+                        </div>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li>
+                                <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-right">
+                            <!-- <li class="header-notification">
+                           <a href="#!">
+                               <i class="ti-bell"></i>
+                               <span class="badge bg-c-pink"></span>
+                           </a>
+                           <ul class="show-notification">
+                               <li>
+                                   <h6>Notifications</h6>
+                                   <label class="label label-danger">New</label>
+                               </li>
+                               <li>
+                                   <div class="media">
+                                       <img class="d-flex align-self-center img-radius" src="assets/images/avatar-2.jpg" alt="Generic placeholder image">
+                                       <div class="media-body">
+                                           <h5 class="notification-user">John Doe</h5>
+                                           <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                           <span class="notification-time">30 minutes ago</span>
+                                       </div>
+                                   </div>
+                               </li>
+                               <li>
+                                   <div class="media">
+                                       <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                                       <div class="media-body">
+                                           <h5 class="notification-user">Joseph William</h5>
+                                           <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                           <span class="notification-time">30 minutes ago</span>
+                                       </div>
+                                   </div>
+                               </li>
+                               <li>
+                                   <div class="media">
+                                       <img class="d-flex align-self-center img-radius" src="assets/images/avatar-3.jpg" alt="Generic placeholder image">
+                                       <div class="media-body">
+                                           <h5 class="notification-user">Sara Soudein</h5>
+                                           <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                           <span class="notification-time">30 minutes ago</span>
+                                       </div>
+                                   </div>
+                               </li>
+                           </ul>
+                       </li> -->
+
+                            <li class="user-profile header-notification">
+                                <a href="#!">
+                                    <img src="/static/admin/assets/images/icon.png" class="img-radius"
+                                        alt="User-Profile-Image">
+                                    <span>Vendor</span>
+                                    <i class="ti-angle-down"></i>
+                                </a>
+                                <ul class="show-notification profile-notification">
+                                    <!-- <li>
+                                   <a href="#!">
+                                       <i class="ti-settings"></i> Settings
+                                   </a>
+                               </li> -->
+                                    <!-- <li>
+                                   <a href="/user-profile/">
+                                       <i class="ti-user"></i> Profile
+                                   </a>
+                               </li> -->
+
+                                    <!-- <li>
+                                   <a href="auth-lock-screen.html">
+                                       <i class="ti-lock"></i> Lock Screen
+                                   </a>
+                               </li> -->
+                                    <li>
+                                        <a href="/admin_login/">
+                                            <i class="ti-layout-sidebar-left"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu">
+
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <!-- <li class="">
+                                    <a href="/vendor_index/">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li> -->
+
+                            </ul>
+                            <!-- <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div> -->
+                            <ul class="pcoded-item pcoded-left-item">
+                                <!-- <li>
+                                <a href="form-elements-component.html">
+                                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li> -->
+                                <!-- <li>
+                                <a href="bs-basic-table.html">
+                                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li> -->
+                                <!-- <li class="">
+                                <a href="auth-sign-up.html">
+                                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Register</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li> -->
+                                <li>
+                                    <!-- <a href="/auth-normal-sign-in/">
+                                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Login</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a> -->
+                                </li>
+                                <!-- <li>
+                                    <a href="/categories/">
+                                        <span class="pcoded-micon"><i class="fa-solid fa-basket-shopping"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add
+                                            Categories</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li> -->
+
+                                <li class="active">
+                                    <a href="/vendor_product/">
+                                        <span class="pcoded-micon"><i
+                                                class="fa-solid fa-basket-shopping"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add
+                                            Product</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/vendor_users/">
+                                        <span class="pcoded-micon"><i
+                                                class="fa-solid fa-user-group"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">View
+                                            Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/viewvendor_orders/">
+                                        <span class="pcoded-micon"><i class="fa-solid fa-list-ul"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">View
+                                            Orders</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/vendor_profile/">
+                                        <span class="pcoded-micon"><i class="fa-solid fa-list-ul"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Profile</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <!-- <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div> -->
+                            <ul class="pcoded-item pcoded-left-item">
+                                <!-- <li>
+                                <a href="chart.html">
+                                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="map-google.html">
+                                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li> -->
+                                <!-- <li class="pcoded-hasmenu">
+                                <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                    <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Pages</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class=" ">
+                                        <a href="auth-normal-sign-in.html">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Login</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="auth-sign-up.html">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Register</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="sample-page.html">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li> -->
+
+                            </ul>
+
+                            <!-- <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Other</div> -->
+
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="card-block">
+                                            <h5 class="m-b-10">Add Product</h5>
+                                            <!-- <p class="text-muted m-b-10">lorem ipsum dolor sit amet, consectetur adipisicing elit</p> -->
+                                            <!-- <ul class="breadcrumb-title b-t-default p-t-10">
+                                                <li class="breadcrumb-item">
+                                                    <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="#!">Basic Componenets</a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="#!">Bootstrap Basic Tables</a>
+                                                </li>
+                                            </ul> -->
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+                                    <button type="button" class="btn btn-primary mt-3 mx-4 mb-3" data-toggle="modal"
+                                        data-target="#add_modal">
+                                        Add
+                                    </button>
+
+                                    <!-- Page-body start -->
+                                    <div class="page-body">
+                                        <!-- Basic table card start -->
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Table</h5>
+                                                <!-- <span>use class <code>table</code> inside table element</span> -->
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option">
+                                                        <li><i class="fa fa-chevron-left"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa-minus minimize-card"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-times close-card"></i></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <table class="table" id="tableData">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Sl.No</th>
+                                                                <th>Category</th>
+                                                                <!-- <th>Sub Category</th> -->
+                                                                <th>Name</th>
+                                                                <th>Price</th>
+                                                                <th>Quantity</th>
+                                                                <th>Description</th>
+                                                                <th>Image</th>
+                                                                <th>Action</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Basic table card end -->
+
+
+
+
+                                    </div>
+                                    <!-- Page-body end -->
+                                    <!-- add -->
+                                    <div class="modal fade" id="add_modal">
+                                        <div class="modal-dialog" style="width: 50%;">
+                                            <div class="modal-content">
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">ADD</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <br><br>
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <form action="#">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Select Category<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <select id="selCategory" class="form-control">
+                                                                        <option value="">Please Select Category</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Select Sub Category<span class="text-danger">*</span></label>
+                                                                    <select id="selSubCategory" class="form-control">
+                                                                      <option value="">Please Select Sub Category</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div> -->
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label>Name <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="txtName">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label>Price <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="txtPrice">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label>Quantity <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="txtQuantity">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label>Image <span
+                                                                            class="text-danger">*</span></label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="txtImage">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label
+                                                                        for="exampleFormControlTextarea1">Description<span
+                                                                            class="text-danger">*</span></label>
+                                                                    <textarea class="form-control" id="txtDescription"
+                                                                        rows="3"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 text-center">
+                                                                <button type="button" class="btn btn-success"
+                                                                    id="btn_add">
+
+                                                                    Save
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- add end -->
+                                </div>
+                            </div>
+                            <!-- Main-body end -->
+
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit_modal">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <input type="hidden" id="edit_id">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Select Category<span class="text-danger">*</span></label>
+                                    <select id="selCategory1" class="form-control">
+                                        <option value="">Please Select Category</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Select Sub Category<span class="text-danger">*</span></label>
+                                <select id="selSubCategory1" class="form-control">
+                                </select>
+                            </div>
+                        </div> -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="txtName1">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Price <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="txtPrice1">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Quantity <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="txtQuantity1">
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Image <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="txtImage1">
+                            </div>
+                        </div> -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Description <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="txtDescription1">
+                                </div>
+                            </div>
+                            <div class="col-12 text-center mt-3">
+                                <button type="button" class="btn btn-success" id="btn_update">
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="delete_modal">Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <input type="hidden" id="delete_id">
+                <div class="modal-body">
+                    <p class="text-center">
+                        Are you sure you want to delete?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btn_delete">Yes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        No
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+<div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+    <div class="iew-container">
+        <ul class="iew-download">
+            <li>
+                <a href="http://www.google.com/chrome/">
+                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <div>Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <div>Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.opera.com">
+                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/safari/">
+                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                    <img src="assets/images/browser/ie.png" alt="">
+                    <div>IE (9 & above)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/static/vendor/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/vendor/js/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/vendor/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/vendor/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="/static/vendor/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="/static/vendor/js/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/static/vendor/js/modernizr/css-scrollbars.js"></script>
+
+    <!-- Custom js -->
+    <script type="text/javascript" src="/static/vendor/js/script.js"></script>
+    <!-- <script type="text/javascript" src="/static/admin/assets/js/jsAdmin.js"></script> -->
+    <script src="/static/vendor/js/pcoded.min.js"></script>
+    <script src="/static/vendor/js/vartical-demo.js"></script>
+    <script src="/static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/static/admin/assets/js/jsAdd_product.js"></script>
+</body>
+
+</html>

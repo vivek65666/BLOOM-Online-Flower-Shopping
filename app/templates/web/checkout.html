@@ -1,0 +1,720 @@
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>BLOOM </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/web/images/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/static/web/css/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="/static/web/images/core-img/leaf.png" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ***** Top Header Area ***** -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="bloombns@gmail.com"><i
+                                        class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email:
+                                        bloombns@gmail.com</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+91 7892387835"><i
+                                        class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +91
+                                        7892387835</span></a>
+                            </div>
+
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta d-flex">
+                                <!-- Language Dropdown -->
+                                <div class="">
+                                    <a href="/admin_login/"><i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Admin</span></a>
+                                </div>
+                                <!-- Login -->
+                                <div class="logout">
+                                    <a href="/login/"><i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Login</span></a>
+                                </div>
+
+                                <div class="login">
+                                    <a href="/web_profile/"><i class="fa fa-user" aria-hidden="true"></i> <span>My
+                                            Profile</span></a>
+                                </div>
+                                <div class="cart">
+                                    <a href="/cart/"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Cart
+                                            <span class="cart-quantity" id="addCart">0</span></span></a>
+                                </div>
+
+                                <div class="cart ml-4 login">
+                                    <a href="/user_logout/"><i class="fa fa-user" aria-hidden="true"></i><span>Logout
+                                        </span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a href="/index/" class="nav-brand">
+                            <h4 class="fw-bold text-white">BLOOM </h4>
+                        </a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="/index/">Home</a></li>
+                                    <li><a href="/about/">About</a></li>
+                                    <li><a href="/shop/">Shop</a></li>
+                                    <li class="dropdown show">
+                                        <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Category
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="categories">
+
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="/gallery/">Gallery</a></li>
+                                    <li><a href="/contact/">Contact</a></li>
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image: url(/static/web/images/bg-img/flo5.jpg);">
+            <h2>Checkout</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/index/"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <h2 class="text-center">Products</h2>
+                    <!-- <div class="cart-list"> -->
+                    <table class="table">
+                        <thead class="thead-primary" id="cartTable">
+                            <tr class="text-center">
+                                <!-- <th>&nbsp;</th> -->
+                                <!-- <th>&nbsp;</th> -->
+                                <th>Product name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <!-- <th>Total</th> -->
+                                <!-- <th>Remove</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <input type="hidden" id="txtID" value="{{request.GET.id}}">
+    <input type="hidden" id="productImage">
+    <input type="hidden" id="productQTY">
+    <input type="hidden" id="productName">
+    <input type="hidden" id="productPrice">
+    <input type="hidden" id="productTotal">
+    <input type="hidden" id="productVendor">
+    <!-- ##### Checkout Area Start ##### -->
+    <section class="ftco-section mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 ftco-animate">
+                    <form action="#" class="billing-form">
+                        <h3 class="mb-4 billing-heading">Billing Details</h3>
+                        <div class="row align-items-end">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="firstname">Name</label>
+                                    <input type="text" class="form-control" placeholder="" id="txtName">
+                                </div>
+                            </div>
+
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" placeholder="" id="txtMobileNo">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="emailaddress">Email Address</label>
+                                    <input type="text" class="form-control" placeholder="" id="txtEmail">
+                                </div>
+                            </div>
+
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="streetaddress">Street Address</label>
+                                    <input type="text" class="form-control" placeholder="House number and street name"
+                                        id="txtAddress">
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="towncity">Town / City</label>
+                                    <input type="text" class="form-control" placeholder="" id="city">
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </form><!-- END -->
+                </div>
+                <div class="col-xl-5">
+                    <div class="row mt-5 pt-3">
+                        <div class="col-md-12 d-flex mb-5">
+                            <div class="cart-detail cart-total p-3 p-md-4">
+                                <h3 class="billing-heading mb-4">Total</h3>
+
+                                <p class="d-flex total-price">
+                                    <span>Total</span>
+                                    <span id="txtTotalAmt">₹17.60</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="cart-detail p-3 p-md-4">
+
+                                <p><a href="#" class="btn bg-dark text-white py-3 px-4" id="btn_submit">Place an
+                                        order</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- .col-md-8 -->
+            </div>
+        </div>
+    </section>
+    <!-- ##### Checkout Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-img" style="background-image: url(/static/web/images/bg-img/3.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="/index/" class="nav-brand">
+                                    <h4 class="fw-bold text-white">BLOOM </h4>
+                                </a>
+
+                            </div>
+                            <p>Living things thrive off routine, and plants are no exception to the rule. There’s no
+                                better way to ensure their health than establishing a steady routine that involves
+                                checking in on them, watering regularly, and fertilizing during spring and summer.</p>
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>QUICK LINK</h5>
+                            </div>
+                            <nav class="widget-nav">
+                                <ul>
+                                    <li><a href="/index/">Home</a></li>
+                                    <li><a href="/about/">About</a></li>
+                                    <li><a href="/shop/">Shop</a></li>
+                                    <li><a href="/gallery/">Gallery</a></li>
+                                    <li><a href="/contact/">Contact</a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>CONTACT</h5>
+                            </div>
+
+                            <div class="contact-information">
+                                <p><span>Address:</span> Belagavi Karnataka</p>
+                                <p><span>Phone:</span> +91 7892387835</p>
+                                <p><span>Email:</span> bloombns@gmail.com</p>
+                                <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
+                                <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Area -->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-line"></div>
+                    </div>
+                    <!-- Copywrite Text -->
+                    <div class="col-12 ">
+                        <div class="copywrite-text d-flex justify-content-center">
+                            <p>&copy;
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved <i
+                                    class="fa fa-heart-o" aria-hidden="true"></i>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Footer Nav -->
+                    <!-- <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Service</a></li>
+                                    <li><a href="#">Portfolio</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="/static/web/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper j/static/web/s -->
+    <script src="/static/web/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstra/static/web/p js -->
+    <script src="/static/web/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plug/static/web/ins js -->
+    <script src="/static/web/js/plugins/plugins.js"></script>
+    <!-- Active j/static/web/s -->
+    <script src="/static/web/js/active.js"></script>
+    <script src="/static/web/js/jsCartCount.js"></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+    var lclTotalAmt = 0;
+    var j = 0;
+
+
+    function getCart() {
+
+        var formData = new FormData();
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+        $.ajax({
+
+            url: "/get_cart/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+                for (var i = 0; i < response.length; i++) {
+                    $("#txtProductName").val(response[i].ct_name);
+
+                    j = i + 1;
+                    var imgSub = response[i].ct_image.substring(3);
+                    $("#cartTable").append('<tr><td class="text-center">' + response[i].ct_name + '</td><td class="text-center">' + response[i].ct_total_amount + '</td><td class="text-center">' + response[i].ct_weight + '</td></tr>');
+
+                    lclTotalAmt = lclTotalAmt + response[i].ct_total_amount;
+
+                    if ($("#productImage").val() == "") {
+                        $("#productImage").val(imgSub)
+                    } else {
+                        $("#productImage").val($("#productImage").val() + "<>" + imgSub);
+                    }
+
+                    if ($("#productQTY").val() == "") {
+                        $("#productQTY").val(response[i].ct_weight)
+                    } else {
+                        $("#productQTY").val($("#productQTY").val() + "<>" + response[i].ct_weight);
+                    }
+
+                    if ($("#productName").val() == "") {
+                        $("#productName").val(response[i].ct_name)
+                    } else {
+                        $("#productName").val($("#productName").val() + "<>" + response[i].ct_name);
+                    }
+
+                    if ($("#productPrice").val() == "") {
+                        $("#productPrice").val(response[i].ct_price)
+                    } else {
+                        $("#productPrice").val($("#productPrice").val() + "<>" + response[i].ct_price);
+                    }
+
+                    if ($("#productTotal").val() == "") {
+                        $("#productTotal").val(response[i].ct_total_amount)
+                    } else {
+                        $("#productTotal").val($("#productTotal").val() + "<>" + response[i].ct_total_amount);
+                    }
+
+                    if ($("#productVendor").val() == "") {
+                        $("#productVendor").val(response[i].ct_created_by)
+                    } else {
+                        $("#productVendor").val($("#productVendor").val() + "<>" + response[i].ct_created_by);
+                    }
+
+                }
+
+                // alert(lclTotalAmt);
+                $("#txtTotalAmt").text("₹" + lclTotalAmt);
+            }
+
+        });
+
+    }
+
+    function getBuyNowURLProduct() {
+
+        let formData = new FormData();
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+        formData.append("txtID", $("#txtID").val());
+
+        let url = window.location.href;
+        let count = window.location.href.length;
+        // alert(count);
+        let mainValue = 0;
+        if (count == 42) {
+            mainValue = url.substring(count, count - 1);
+        } else {
+            mainValue = url.substring(count, count - 2);
+        }
+
+        // alert(mainValue);
+
+        $.ajax({
+
+            url: "/get_buy_now_url/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                // var lclTotalAmt = 0;
+                for (var i = 0; i < response.length; i++) {
+                    j = j + 1;
+                    var imgSub = response[i].ap_image.substring(3);
+                    let lclPrice = response[i].ap_price * mainValue;
+
+                    $("#cartTable").append('<tr><td class="text-center">' + response[i].ap_name + '</td><td class="text-center">' + lclPrice + '</td><td class="text-center">' + mainValue + '</td></tr>');
+
+                    lclTotalAmt = lclTotalAmt + parseFloat(response[i].ap_price * mainValue);
+
+
+                    if ($("#productImage").val() == "") {
+                        $("#productImage").val(imgSub)
+                    } else {
+                        $("#productImage").val($("#productImage").val() + "<>" + imgSub);
+                    }
+
+                    if ($("#productQTY").val() == "") {
+                        $("#productQTY").val(mainValue)
+                    } else {
+                        $("#productQTY").val($("#productQTY").val() + "<>" + mainValue);
+                    }
+
+                    if ($("#productName").val() == "") {
+                        $("#productName").val(response[i].ap_name)
+                    } else {
+                        $("#productName").val($("#productName").val() + "<>" + response[i].ap_name);
+                    }
+
+                    if ($("#productPrice").val() == "") {
+                        $("#productPrice").val(response[i].ap_price)
+                    } else {
+                        $("#productPrice").val($("#productPrice").val() + "<>" + response[i].ap_price);
+                    }
+
+                    if ($("#productTotal").val() == "") {
+                        $("#productTotal").val(parseFloat(response[i].ap_price * mainValue))
+                    } else {
+                        $("#productTotal").val($("#productTotal").val() + "<>" + parseFloat(response[i].ap_price * mainValue));
+                    }
+
+                    if ($("#productVendor").val() == "") {
+                        $("#productVendor").val(response[i].ap_created_by)
+                    } else {
+                        $("#productVendor").val($("#productVendor").val() + "<>" + response[i].ap_created_by);
+                    }
+
+                }
+
+                // alert(response.length);
+                if (response.length) {
+                    $("#txtTotalAmt").text("₹" + lclTotalAmt);
+                }
+
+            }
+
+        });
+
+    }
+
+    getCart();
+
+    if ($("#txtID").val() != "") {
+        getBuyNowURLProduct();
+    }
+
+
+    $(document).ready(function () {
+
+
+        $("#btn_submit").click(function (e) {
+            //verification
+            if ($("#txtName").val().trim().length < 1) {
+                alert("Please Enter Full Name");
+                $("#txtName").focus();
+                return false;
+            }
+
+            if ($("#txtMobileNo").val().trim().length < 10) {
+                alert("Please Enter Mobile number");
+                $("#txtMobileNo").focus();
+                return false;
+            }
+
+            if ($("#txtEmail").val().trim().length < 1) {
+                alert("Please Enter Email");
+                $("#txtEmail").focus();
+                return false;
+            }
+
+            if ($("#txtAddress").val().trim().length < 1) {
+                alert("Please Enter Address");
+                $("#txtAddress").focus();
+                return false;
+            }
+
+            var d = new Date();
+            var date = d.getDate();
+
+            var d = new Date();
+            var month = d.getMonth() + 1;
+
+            var d = new Date();
+            var year = d.getFullYear();
+
+            var lclDate = date + "-" + month + "-" + year;
+
+            var formData = new FormData();
+
+            formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+            formData.append("txtName", $("#txtName").val());
+            formData.append("txtMobileNo", $("#txtMobileNo").val());
+            formData.append("txtEmail", $("#txtEmail").val());
+            formData.append("txtAddress", $("#txtAddress").val());
+            formData.append("txtDate", lclDate);
+            formData.append("txtProductName", $("#txtProductName").val());
+            var lclTotalAmt = ($("#txtTotalAmt").text().trim()).substring(1);
+            formData.append("totalAmt", lclTotalAmt);
+
+            formData.append("productImage", $("#productImage").val());
+            formData.append("productQTY", $("#productQTY").val());
+            formData.append("productName", $("#productName").val());
+            formData.append("productPrice", $("#productPrice").val());
+            formData.append("productTotal", $("#productTotal").val());
+            formData.append("productVendor", $("#productVendor").val());
+
+            formData.append("action", "order");
+
+            $.ajax({
+                beforeSend: function () {
+                    // $(".btn .spinner-border").show();
+                    $("#continue_button").attr("disabled", true);
+                },
+                url: "/checkout/payment/",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    payment(lclTotalAmt);
+                },
+                error: function (request, error) {
+                    console.error(error);
+                },
+                complete: function () {
+                    // $(".btn .spinner-border").hide();
+                    $("#continue_button").attr("disabled", false);
+                },
+            });
+        });
+
+    });
+
+    function payment(amount) {
+
+        var totalAmount = amount;
+        var options = {
+            "key": "rzp_test_aKbqVbQ3Ciq9KZ",
+            // rzp_live_fAt71isKlJSzhX
+            "amount": (totalAmount * 100), // 2000 paise = INR 20
+            "name": "Flower shopping",
+            "description": "Payment",
+            "handler": function (response) {
+                // alert(response.razorpay_payment_id);
+                // submitRegDetails(response.razorpay_payment_id);
+                window.location.href = '/pay_success?name=' + $("#txtName").val() + '&email=' + $("#txtEmail").val() + '&mobile=' + $("#txtMobileNo").val() + '&amount=' + amount + '&transaction_id=' + response.razorpay_payment_id;
+
+            },
+            "prefill": {
+                "contact": $("#txtMobileNo").val(),
+                "email": $("#txtEmail").val(),
+            },
+
+            "theme": {
+                "color": "#4caf50"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+        // preventDefault();
+        // });
+
+    }
+
+
+
+
+    function getCategories() {
+
+        var formData = new FormData();
+        formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+        $.ajax({
+
+            url: "/web_get_categories/",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+                for (var i = 0; i < response.length; i++) {
+                    // var imgSub = response[i].ap_image.substring(8);
+                    // if(response[i].ap_role == "Vendor") {
+
+                    $("#categories").append(' <a class="dropdown-item" href="/category_detail/?id=' + response[i].ca_name + '">' + response[i].ca_name + '</a>');
+                    // }
+                }
+
+            }
+
+        });
+    }
+    getCategories()
+</script>
