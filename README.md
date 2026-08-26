@@ -34,7 +34,7 @@ BLOOM is a web-based online flower shopping platform built with **Python and Dja
 
 ### Database
 
-* SQLite / [add your actual database here]
+- MySQL
 
 ### Development Tools
 
