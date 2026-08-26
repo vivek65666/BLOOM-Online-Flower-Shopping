@@ -119,29 +119,31 @@ Open the application in your browser:
 http://127.0.0.1:8000/
 ```
 
-## 🖥️ Application Screenshots
-
-Add screenshots of the major pages here.
+🖥️ Application Screenshots
 
 ### Home Page
+![Home Page](screenshots/Screenshot_2026-05-05_113653.png)
 
-*Add your home-page screenshot here.*
+### Login Screen
+![Login Screen](screenshots/Screenshot_2026-05-05_113722.png)
 
-### Product Listing
+### Registration Screen
+![Registration Screen](screenshots/Screenshot_2026-05-05_113742.png)
 
-*Add your product-listing screenshot here.*
+### Shop Screen
+![Shop Screen](screenshots/Screenshot_2026-05-05_113759.png)
 
-### Product Details
+### Product / Order Details Screen
+![Order Details Screen](screenshots/Screenshot_2026-05-05_113816.png)
 
-*Add your product-details screenshot here.*
+### Cart Screen
+![Cart Screen](screenshots/Screenshot_2026-05-05_113834.png)
 
-### Shopping Cart
+### Admin Screen
+![Admin Screen](screenshots/Screenshot_2026-05-05_113852.png)
 
-*Add your cart screenshot here.*
-
-### Login / Registration
-
-*Add your authentication screenshot here.*
+### Vendor Screen
+![Vendor Screen](screenshots/Screenshot_2026-05-05_113911.png)
 
 ## 👤 User Functionality
 
