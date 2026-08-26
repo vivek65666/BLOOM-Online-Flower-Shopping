@@ -122,28 +122,28 @@ http://127.0.0.1:8000/
 🖥️ Application Screenshots
 
 ### Home Page
-![Home Page](screenshots/Screenshot_2026-05-05_113653.png)
+![Home Page](screenshots)
 
 ### Login Screen
-![Login Screen](screenshots/Screenshot_2026-05-05_113722.png)
+![Login Screen](screenshots)
 
 ### Registration Screen
-![Registration Screen](screenshots/Screenshot_2026-05-05_113742.png)
+![Registration Screen](screenshots)
 
 ### Shop Screen
-![Shop Screen](screenshots/Screenshot_2026-05-05_113759.png)
+![Shop Screen](screenshots)
 
 ### Product / Order Details Screen
-![Order Details Screen](screenshots/Screenshot_2026-05-05_113816.png)
+![Order Details Screen](screenshots)
 
 ### Cart Screen
-![Cart Screen](screenshots/Screenshot_2026-05-05_113834.png)
+![Cart Screen](screenshots)
 
 ### Admin Screen
-![Admin Screen](screenshots/Screenshot_2026-05-05_113852.png)
+![Admin Screen](screenshots)
 
 ### Vendor Screen
-![Vendor Screen](screenshots/Screenshot_2026-05-05_113911.png)
+![Vendor Screen](screenshots)
 
 ## 👤 User Functionality
 
