@@ -71,10 +71,6 @@ def viewSingleProduct(request):
     return render(request, "web/product-single.html")
 
 
-def paymentSuccess(request):
-    return render(request, "web/pay-success.html")
-
-
 def getcategoryDetails(request):
     return render(request, "web/category_detail.html")
 
@@ -351,12 +347,9 @@ def cancelItem(request):
 
 
 def checkoutPayment(request):
-    lclID = Order.objects.count()
     status = "0"
-    lclNewID = lclID + 1
 
-    Order.objects.create(
-        or_id=lclNewID,
+    new_order = Order.objects.create(
         or_name=request.POST["txtName"],
         or_weight=0,
         or_rate=0,
@@ -365,7 +358,7 @@ def checkoutPayment(request):
         or_date=request.POST["txtDate"],
         or_ordered_by=request.session["web_email"],
         or_status=status,
-        or_created_by=request.session["vendor_email"],
+        or_created_by=request.session["web_email"],
     )
 
     productImage = request.POST["productImage"].split("<>")
@@ -374,44 +367,31 @@ def checkoutPayment(request):
     productPrice = request.POST["productPrice"].split("<>")
     productTotal = request.POST["productTotal"].split("<>")
     productVendor = request.POST["productVendor"].split("<>")
+
     k = 0
 
     for i in productQTY:
-        lclID1 = PurchasedProducts.objects.count()
-        status = "0"
-        lclNewID1 = lclID1 + 1
 
         now = datetime.datetime.now()
         dateNow = now.strftime("%Y-%m-%d")
 
         PurchasedProducts.objects.create(
-            ps_id=lclNewID1,
-            ps_or_id=lclNewID,
+            ps_or_id=new_order.or_id,
             ps_product_name=productName[k],
             ps_image=productImage[k],
             ps_weight=productQTY[k],
             ps_price=productPrice[k],
             ps_total_amt=productTotal[k],
             ps_date=dateNow,
-            ps_status=status,
+            ps_status="0",
             ps_vendor_email=productVendor[k],
             ps_user_name=request.POST["txtName"],
             ps_user_email=request.session["web_email"],
         )
 
-        # product_json = Product.objects.filter(ap_name = productName[k]).values()
-        # data = list(product_json)
-        # dictValue = data[0]
-        # print(dictValue);
-        # Qty = dictValue['ap_total_quantity']
-
-        # lclTotalQTY = int(Qty) - int(productQTY[k]);
-
-        # Product.objects.filter(ap_name = productName[k]).update(ap_total_quantity = lclTotalQTY)
         k += 1
 
-    return HttpResponse()
-
+    return HttpResponse(new_order.or_id)
 
 def checkCheckout(request):
     if "web_email" in request.session:
@@ -444,11 +424,14 @@ def getUserData(request):
 
 
 def getOrderData(request):
+
     if request.session["role"] == "Admin":
-        products_json = Order.objects.filter().values()
+
+        products_json = Order.objects.filter(or_status=1).values()
         data = list(products_json)
         value = JsonResponse(data, safe=False)
         return value
+
     else:
         products_json = PurchasedProducts.objects.filter(
             ps_vendor_email=request.session["email"]
@@ -459,14 +442,24 @@ def getOrderData(request):
 
 
 def paymentSuccess(request):
-    Order.objects.filter(
-        or_ordered_by=request.session["web_email"], or_status="0"
-    ).update(or_transaction_id=request.GET.get("transaction_id"), or_status="1")
-    Cart.objects.filter(ct_ordered_by=request.session["web_email"]).update(
+
+    order = Order.objects.filter(
+        or_ordered_by=request.session["web_email"],
+        or_status="0"
+    ).order_by("-or_id").first()
+
+    if order:
+        order.or_transaction_id = request.GET.get("transaction_id")
+        order.or_status = "1"
+        order.save()
+
+    Cart.objects.filter(
+        ct_ordered_by=request.session["web_email"]
+    ).update(
         ct_status="1"
     )
-    return render(request, "web/pay_success.html", {})
 
+    return render(request, "web/pay_success.html", {})
 
 def newRegister(request):
     if Register.objects.filter(
