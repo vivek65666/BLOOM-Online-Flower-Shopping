@@ -1,4 +1,4 @@
-🌸 BLOOM – Online Flower Shopping
+###🌸 BLOOM – Online Flower Shopping
 
 BLOOM is a Django-based online flower shopping platform that provides a complete e-commerce workflow for browsing flowers, managing a shopping cart, placing orders, and processing test payments through Razorpay.
 
